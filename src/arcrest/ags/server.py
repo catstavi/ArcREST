@@ -99,6 +99,9 @@ class Server(BaseAGSServer):
             if k == 'folders':
                 v.insert(0, 'root')
                 setattr(self, "_"+ k, v)
+                
+        if self._folders == None:
+            setattr(self, "_folders", ['root'])
     #----------------------------------------------------------------------
     @property
     def root(self):
@@ -247,4 +250,3 @@ class Server(BaseAGSServer):
                 self._currentFolder = value
                 self._location = self.root
             self.__init(folder=value)
-
